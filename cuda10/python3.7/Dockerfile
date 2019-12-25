@@ -1,4 +1,3 @@
-# syntax = docker/dockerfile:experimental
 FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 LABEL maintainer="huyu <huyu.sakuya4645@gmail.com>"
@@ -11,8 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TZ Asia/Tokyo
 
 # Python の依存関係パッケージを取得
-RUN --mount=type=cache,dst=/var/cache/apt --mount=type=cache,dst=/var/lib/apt \
-    apt update  \
+RUN apt update  \
  && apt upgrade -y  \
  && apt install -y build-essential libbz2-dev libdb-dev \
                    libreadline-dev libffi-dev libgdbm-dev liblzma-dev \
